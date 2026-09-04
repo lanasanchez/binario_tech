@@ -1,0 +1,13 @@
+{
+  "name": "binario_tech",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node src/middlewares/index.js",
+    "db:reset": "npx knex migrate:rollback --all && npx knex migrate:latest && npx knex seed:run"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "express": "^4.19.0",
+    "knex": "^3.1.0"
+  }
+}

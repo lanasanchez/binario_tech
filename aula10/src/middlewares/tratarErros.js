@@ -1,0 +1,1 @@
+function tratarErros(err, req, res, next) { if (err instanceof SyntaxError && err.status === 400 && 'body' in err) { return res.status(400).json({ status: 'erro', mensagem: 'O JSON enviado no corpo da requisição contém erros de sintaxe.' }); } return res.status(500).json({ status: 'erro', mensagem: 'Erro interno do servidor.' }); } module.exports = tratarErros;

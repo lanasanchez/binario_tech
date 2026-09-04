@@ -1,0 +1,1 @@
+const express = require('express'); const router = express.Router(); const { buscarPorSeveridade } = require('../controllers/alertaController'); router.get('/alertas/severidade/:nivel', buscarPorSeveridade); module.exports = router;

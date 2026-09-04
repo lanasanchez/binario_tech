@@ -1,0 +1,1 @@
+const express = require('express'); const tratarErros = require('./tratarErros'); const app = express(); app.use(express.json()); app.post('/veiculos', (req, res) => res.json({ ok: true })); app.use(tratarErros); app.listen(3000, () => console.log('Servidor rodando na porta 3000'));

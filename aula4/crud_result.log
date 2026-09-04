@@ -1,0 +1,19 @@
+==========================================
+ INICIANDO TESTES AUTOMATIZADOS DA API    
+ Data/Hora: Fri Aug  7 02:35:53 AM UTC 2026
+==========================================
+
+[1/4] Cadastrando Veículo 1 (Scania R450)...
+{"id":3,"placa":"ABC-1234","montadora":"Scania","modelo":"R450","status":"DISPONIVEL"}
+
+[2/4] Cadastrando Veículo 2 (Volvo FH 540)...
+{"id":4,"placa":"XYZ-5678","montadora":"Volvo","modelo":"FH 540","status":"MANUTENCAO"}
+
+[3/4] Atualizando Veículo ID 1 (Volvo FH 540 / DISPONIVEL)...
+{"mensagem":"Veiculo atualizado com sucesso!","veiculo":{"id":1,"placa":"XYZ-9999","montadora":"Volvo","modelo":"FH 540","status":"DISPONIVEL"}}
+
+[4/4] Deletando Veículo ID 2...
+{"mensagem":"Veiculo removido com sucesso!"}
+
+==========================================
+ TESTES CONCLUÍDOS! Logs salvos em crud_result.log
