@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log('[ERRO MONGODB]:', err.message));
 
 // Escutar na porta
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 app.listen(PORT, () => {
   console.log(`[SERVIDOR]: Rodando na porta ${PORT}`);
 });
