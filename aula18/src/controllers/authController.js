@@ -38,7 +38,7 @@ exports.register = async (req, res) => {
   }
 };
 
-// Endpoint de Login
+// Endpoint de Login (Retorna JWT com ID, Email e expira em 30m)
 exports.login = async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -50,18 +50,29 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ msg: 'Credenciais inválidas.' });
+      return res.status(401).json({ msg: 'Credenciais inválidas.' });
     }
 
     const isMatch = await bcrypt.compare(senha, user.senha);
     if (!isMatch) {
-      return res.status(400).json({ msg: 'Credenciais inválidas.' });
+      return res.status(401).json({ msg: 'Credenciais inválidas.' });
     }
 
-    const payload = { userId: user._id };
-    const token = jwt.sign(payload, process.env.JWT_SECRET || 'secret', { expiresIn: '1h' });
+    const payload = {
+      id: user._id,
+      email: user.email
+    };
 
-    return res.json({ token });
+    const token = jwt.sign(
+      payload,
+      process.env.JWT_SECRET || 'secret',
+      { expiresIn: '30m' }
+    );
+
+    return res.status(200).json({
+      msg: 'Autenticação realizada com sucesso!',
+      token
+    });
   } catch (err) {
     console.error(err.message);
     return res.status(500).send('Erro no servidor.');
