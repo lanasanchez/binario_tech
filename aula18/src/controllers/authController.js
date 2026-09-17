@@ -78,3 +78,20 @@ exports.login = async (req, res) => {
     return res.status(500).send('Erro no servidor.');
   }
 };
+
+// Endpoint Protegido de Relatório
+exports.relatorio = async (req, res) => {
+  try {
+    return res.status(200).json({
+      msg: 'Acesso ao relatório autorizado!',
+      usuario: req.user, // Contém o id e email vindos do token decodificado
+      relatorio: {
+        status: 'Sistema operando normalmente',
+        dataAcesso: new Date()
+      }
+    });
+  } catch (err) {
+    console.error(err.message);
+    return res.status(500).send('Erro interno no servidor.');
+  }
+};
