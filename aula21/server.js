@@ -6,8 +6,7 @@ const PORT = process.env.PORT || 3002;
 app.use(express.json());
 
 app.get('/api/v1/versao', (req, res) => {
-  res.json({ versao: "1.0.1" });
-});
+  res.json({
     aplicacao: "API Binário Tech - CI/CD Pipeline",
     versao: "1.0.1",
     ambiente: "Servidor de Homologação Local",
@@ -19,4 +18,3 @@ app.get('/api/v1/versao', (req, res) => {
 app.listen(PORT, () => {
   console.log(`[Binário Tech] Aplicação CI/CD ativa na porta ${PORT}`);
 });
-
