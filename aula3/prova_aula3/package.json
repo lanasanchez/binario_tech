@@ -1,0 +1,12 @@
+{
+  "name": "prova_aula3",
+  "version": "1.0.0",
+  "description": "Exercicios de telemetria",
+  "main": "telemetria.js",
+  "scripts": {
+    "start": "node telemetria.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

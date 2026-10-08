@@ -1,0 +1,15 @@
+===== AUDITORIA DE TELEMETRIA =====
+
+Testando Volkswagen...
+{"montadora":"Volkswagen","modelo":"Constellation","status":"OK","conexao":true,"velocidade_media":78}
+
+Testando Scania...
+{"montadora":"Scania","modelo":"R450","status":"OK","conexao":true,"velocidade_media":80}
+
+Testando Mercedes-Benz...
+{"montadora":"Mercedes-Benz","modelo":"Actros","status":"OK","conexao":true,"velocidade_media":75}
+
+Testando Volvo...
+{"montadora":"Volvo","modelo":"FH 540","status":"OK","conexao":true,"velocidade_media":82}
+
+===== AUDITORIA FINALIZADA =====
