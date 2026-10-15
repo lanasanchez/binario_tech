@@ -1,0 +1,15 @@
+{
+  "name": "prova_aula4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "frota_api.js",
+  "scripts": {
+    "start": "node frota_api.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
