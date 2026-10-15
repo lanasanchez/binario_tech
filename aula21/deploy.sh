@@ -13,15 +13,19 @@ npm install --omit=dev
 echo "[3/4] Reiniciando aplicação no PM2..."
 pm2 restart api-cicd
 
-# Registra a data, hora e hash do commit no histórico de deploys
-echo "$(date '+%Y-%m-%d %H:%M:%S') - Commit: $(git rev-parse --short HEAD)" >> deploy_history.log
+# Aguarda 2 segundos para o serviço subir totalmente
+sleep 2
 
 echo "[4/4] Executando Smoke Test na API (Porta 3400)..."
-HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3002/api/v1/versao)
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:3400/api/v1/versao)
 
 if [ "$HTTP_STATUS" -eq 200 ]; then
     echo ""
     echo "[SUCESSO] Deploy realizado e verificado com sucesso! HTTP Status 200."
+    
+    # Registra o histórico somente em caso de sucesso
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Commit: $(git rev-parse --short HEAD)" >> deploy_history.log
+    
     pm2 list
 else
     echo ""
@@ -29,5 +33,3 @@ else
     pm2 logs api-cicd --lines 20
     exit 1
 fi
-
-echo "$(date '+%Y-%m-%d %H:%M:%S') - Commit: $(git rev-parse --short HEAD)" >> deploy_history.log
