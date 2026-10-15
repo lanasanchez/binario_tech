@@ -29,3 +29,5 @@ else
     pm2 logs api-cicd --lines 20
     exit 1
 fi
+
+echo "$(date '+%Y-%m-%d %H:%M:%S') - Commit: $(git rev-parse --short HEAD)" >> deploy_history.log
