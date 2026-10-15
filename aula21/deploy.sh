@@ -16,7 +16,7 @@ pm2 restart api-cicd
 # Registra a data, hora e hash do commit no histórico de deploys
 echo "$(date '+%Y-%m-%d %H:%M:%S') - Commit: $(git rev-parse --short HEAD)" >> deploy_history.log
 
-echo "[4/4] Executando Smoke Test na API (Porta 3002)..."
+echo "[4/4] Executando Smoke Test na API (Porta 3400)..."
 HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3002/api/v1/versao)
 
 if [ "$HTTP_STATUS" -eq 200 ]; then
